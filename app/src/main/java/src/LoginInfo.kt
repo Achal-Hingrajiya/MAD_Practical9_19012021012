@@ -18,8 +18,8 @@ class LoginInfo {
 //
 
         fun registered () : Boolean{
-//            return this :: email.isInitialized
-            return true
+            return this :: email.isInitialized
+//            return true
 
         }
         fun signUp(full_name : String, phone_number : String, city : String, email : String, password : String){

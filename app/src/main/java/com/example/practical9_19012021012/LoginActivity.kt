@@ -14,8 +14,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-
-
         if (LoginInfo.logged_in){
             Toast.makeText(this, "Welcome back, ${LoginInfo.full_name}!", Toast.LENGTH_SHORT).show()
             Intent(this, DashboardActivity :: class.java).apply {
@@ -50,22 +48,15 @@ class LoginActivity : AppCompatActivity() {
                     }
                     else{
                         Toast.makeText(this, "Email or Password is incorrect. Retry.", Toast.LENGTH_SHORT).show()
-
                     }
-
-
                 }
                 else{
                     Toast.makeText(this, "All fields are required!", Toast.LENGTH_SHORT).show()
-
                 }
             }
             else{
                 Toast.makeText(this, "Please Sign Up first.", Toast.LENGTH_SHORT).show()
             }
-
-
-
         }
     }
 

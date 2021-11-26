@@ -19,11 +19,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import src.LoginInfo
 import src.receivers.AlarmBroadcastReceiver
 
-
-//import a
-
-
-
 class DashboardActivity : AppCompatActivity() {
 
     lateinit var btnSetAlarm : Button;
@@ -35,7 +30,6 @@ class DashboardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_dashboard)
 
         var logoutBtn = findViewById<Button>(R.id.tbtn_logout)
-
         btnSetAlarm = findViewById(R.id.tbtn_set_alarm)
 
         val name = LoginInfo.full_name
@@ -43,15 +37,12 @@ class DashboardActivity : AppCompatActivity() {
         val phone = LoginInfo.phone_number
         val city = LoginInfo.city
 
-
         val tvName = findViewById<TextView>(R.id.dash_name)
         val tvEmail = findViewById<TextView>(R.id.dash_email)
         val tvFullName = findViewById<TextView>(R.id.tv_full_name)
         val tvEmailInfo = findViewById<TextView>(R.id.tv_email)
         val tvPhone = findViewById<TextView>(R.id.tv_phn_no)
         val tvCity = findViewById<TextView>(R.id.tv_city)
-
-
 
         tvName.text = name
         tvFullName.text = name
@@ -70,18 +61,13 @@ class DashboardActivity : AppCompatActivity() {
                     }
                     return@setOnItemSelectedListener true
                 }
-
                 else -> {
-
                     return@setOnItemSelectedListener true
                 }
             }
         }
 
-
-
     logoutBtn.setOnClickListener {
-
             Toast.makeText(this, "Logged Out!", Toast.LENGTH_SHORT).show()
             LoginInfo.logout()
             Intent(this, LoginActivity::class.java).apply {
@@ -109,6 +95,7 @@ class DashboardActivity : AppCompatActivity() {
                 minutes,
                 false
         )
+
         picker.show()
     }
 

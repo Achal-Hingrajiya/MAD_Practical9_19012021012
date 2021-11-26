@@ -17,15 +17,12 @@ class SignUpActivity : AppCompatActivity() {
         var signUpBtn = findViewById<Button>(R.id.btn_sign_up)
 
         signUpBtn.setOnClickListener {
-
-
             val email : String = findViewById<TextInputEditText>(R.id.su_email).text.toString()
             val fullName : String = findViewById<TextInputEditText>(R.id.su_full_name).text.toString()
             val phoneNumber : String = findViewById<TextInputEditText>(R.id.su_phone_no).text.toString()
             val password : String = findViewById<TextInputEditText>(R.id.su_password).text.toString()
             val confPassword : String = findViewById<TextInputEditText>(R.id.su_conf_password).text.toString()
             val city : String = findViewById<TextInputEditText>(R.id.su_city).text.toString()
-
 
             if (
                 email.isNotBlank() &&
@@ -38,7 +35,6 @@ class SignUpActivity : AppCompatActivity() {
 
                 Log.i("SignUpActivity","Name: $fullName Phone: $phoneNumber City: $city Email: $email Pass: $password ConfPass: $confPassword")
 
-
                 if (password == confPassword){
                     LoginInfo.signUp(fullName, phoneNumber, city, email, password)
                     Toast.makeText(this, "Signed Up Successfully!", Toast.LENGTH_SHORT).show()
@@ -48,20 +44,14 @@ class SignUpActivity : AppCompatActivity() {
                     }
                 }else{
                     Toast.makeText(this, "Passwords doesn't match!", Toast.LENGTH_SHORT).show()
-
                 }
-
             }
             else{
                 Toast.makeText(this, "All fields are required!", Toast.LENGTH_LONG).show()
 
             }
-
-
-
         }
     }
-
 
     override fun onBackPressed() {
         super.onBackPressed()

@@ -83,11 +83,6 @@ class ListBaseAdapter(private val context: Context, private val dataSource: Arra
         desc.setText(note.Description)
         reminderSwitch.isChecked = note.isReminder
 
-//        val hour = timePicker.hour
-//        val minute = timePicker.minute
-//        val remTimeInMillis = getMillis(hour, minute)
-//        val modifiedTime = getCurrentDateTime(remTimeInMillis)
-
         timePicker.hour = getHour(note.remindertime)
         timePicker.minute = getMinute(note.remindertime)
 
