@@ -3,19 +3,19 @@ package src
 class LoginInfo {
     companion object{
 
-//        lateinit var full_name : String;
-//        lateinit var  phone_number : String;
-//        lateinit var city: String;
-//        lateinit var email : String;
-//        lateinit var password: String;
+        lateinit var full_name : String;
+        lateinit var  phone_number : String;
+        lateinit var city: String;
+        lateinit var email : String;
+        lateinit var password: String;
 
-         var full_name : String = "Achal Hingrajiya"
-         var  phone_number : String = "+91 6355689874"
-         var city: String = "Rajkot, Gujarat"
-         var email : String = "achalhingrajiya19@gnu.ac.in"
-         var password: String = "abcd"
-        var logged_in : Boolean= true;
-
+//         var full_name : String = "Achal Hingrajiya"
+//         var  phone_number : String = "+91 6355689874"
+//         var city: String = "Rajkot, Gujarat"
+//         var email : String = "achalhingrajiya19@gnu.ac.in"
+//         var password: String = "abcd"
+        var logged_in : Boolean= false;
+//
 
         fun registered () : Boolean{
 //            return this :: email.isInitialized
