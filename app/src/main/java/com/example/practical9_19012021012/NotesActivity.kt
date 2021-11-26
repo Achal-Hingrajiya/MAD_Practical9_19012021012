@@ -129,18 +129,24 @@ class NotesActivity : AppCompatActivity() {
                     val remTimeInMillis = getMillis(hour, minute)
                     val modifiedTime = getCurrentDateTime(remTimeInMillis)
 
-                    val note = Notes(
+                    if(title.isBlank() or subtitle.isBlank() or desc.isBlank()){
+                        Toast.makeText(this, "All Fields are required.",Toast.LENGTH_LONG).show()
+                    }
+                    else{
+                        val note = Notes(
                             title= title,
                             subTitle= subtitle,
                             Description = desc,
                             isReminder = isReminder,
                             modifiedTime =modifiedTime,
-                    )
+                        )
 
 
-                    Notes.addNote(note)
-                    lvAdapter.notifyDataSetChanged()
-                    setAlarm(this, note, remTimeInMillis)
+                        Notes.addNote(note)
+                        lvAdapter.notifyDataSetChanged()
+                        setReminder(this, note, remTimeInMillis)
+                    }
+
 
                 })
         val dialog: AlertDialog = builder.create()
@@ -150,7 +156,7 @@ class NotesActivity : AppCompatActivity() {
 
 
     @RequiresApi(Build.VERSION_CODES.KITKAT)
-    fun setAlarm(context: Context, notes: Notes, timeInMillis :Long)
+    fun setReminder(context: Context, notes: Notes, timeInMillis :Long)
     {
         val index = notesArray.indexOf(notes)
         val intent = Intent(context, NotificationBroadcastReceiver::class.java)
@@ -168,7 +174,6 @@ class NotesActivity : AppCompatActivity() {
                     timeInMillis,
                     pendingIntent
             )
-//            Toast.makeText(this,"Reminder set $hour:$minute", Toast.LENGTH_SHORT).show()
         }
         else
             alarmManager.cancel(pendingIntent)
